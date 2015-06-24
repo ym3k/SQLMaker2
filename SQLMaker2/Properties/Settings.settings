@@ -1,7 +1,61 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
-<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
-  <Profiles>
-    <Profile Name="(Default)" />
-  </Profiles>
-  <Settings />
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="SQLMaker2.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="ZoneMax" Type="System.Int16" Scope="Application">
+      <Value Profile="(Default)">4</Value>
+    </Setting>
+    <Setting Name="ApList" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">東京:tokyo
+大阪:osaka
+愛知:aichi
+北海道:hokkaido
+宮城:miyagi
+広島:hiroshima
+福岡:fukuoka
+青森:aomori
+岩手:iwate
+秋田:akita
+山形:yamagata
+福島:fukushima
+茨城:ibaragi
+栃木:tochigi
+群馬:gunma
+山梨:yamanashi
+新潟:niigata
+長野:nagano
+神奈川:kanagawa
+埼玉:saitama
+千葉:chiba
+岐阜:gifu
+三重:mie
+静岡:shizuoka
+兵庫:hyogo
+京都:kyoto
+奈良:nara
+滋賀:shiga
+和歌山:wakayama
+富山:toyama
+石川:ishikawa
+福井:fukui
+鳥取:tottori
+徳島:tokushima
+香川:kagawa
+愛媛:ehime
+高知:kochi
+島根:shimane
+岡山:okayama
+山口:yamaguchi
+佐賀:saga
+長崎:nagasaki
+熊本:kumamoto
+大分:oita
+宮崎:miyazaki
+鹿児島:kagoshima
+沖縄:okinawa</Value>
+    </Setting>
+    <Setting Name="CName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">PC-sphere</Value>
+    </Setting>
+  </Settings>
 </SettingsFile>

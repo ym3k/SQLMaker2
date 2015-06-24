@@ -24,5 +24,10 @@ namespace SQLMaker2
         {
             InitializeComponent();
         }
+
+        private void BT_Close(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
     }
 }

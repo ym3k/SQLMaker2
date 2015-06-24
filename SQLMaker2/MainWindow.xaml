@@ -1,8 +1,101 @@
 ﻿<Window x:Class="SQLMaker2.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MainWindow" Height="350" Width="525">
+        xmlns:l="clr-namespace:SQLMaker2"
+        Title="従量課金登録SQL作成ツール" Height="500" Width="700" MinHeight="500" MinWidth="650" Background="LightGoldenrodYellow">
+    <Window.DataContext>
+        <l:MainWindowViewModel/>
+    </Window.DataContext>
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="270"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="180"/>
+                <ColumnDefinition Width="110"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0" Margin="15">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="130"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="収容ルータ"         Grid.Column="0" Grid.Row="0" VerticalAlignment="Center"/>
+                <TextBlock Text="ルータIPアドレス"   Grid.Column="0" Grid.Row="1" VerticalAlignment="Center"/>
+                <TextBlock Text="ユーザ名"           Grid.Column="0" Grid.Row="2" VerticalAlignment="Center"/>
+                <TextBlock Text="ネットワークID"     Grid.Column="0" Grid.Row="3" VerticalAlignment="Center"/>
+                <TextBlock Text="AP"                 Grid.Column="0" Grid.Row="4" VerticalAlignment="Center"/>
+                <TextBlock Text="インターフェースNo" Grid.Column="0" Grid.Row="5" VerticalAlignment="Center"/>
+                <TextBlock Text="ゾーンID"           Grid.Column="0" Grid.Row="6" VerticalAlignment="Center"/>
+                <TextBox Text="{Binding Path=Router}" Grid.Column="1" Grid.Row="0" VerticalAlignment="Center" />
+                <TextBox Text="{Binding Path=IPaddr}" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" 
+                         IsEnabled="{Binding Path=routerIsNotResistered}"/>
+                <TextBox Text="{Binding Path=User}" Grid.Column="1" Grid.Row="2" VerticalAlignment="Center" />
+                <TextBox Text="{Binding Path=NWID}" Grid.Column="1" Grid.Row="3" VerticalAlignment="Center" />
+                <ComboBox ItemsSource="{x:Static l:Aps.Items}"
+                          SelectedItem="{Binding Path=Ap}"
+                          Grid.Column="1" Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Left" Width="120"/>
+                <TextBox Text="{Binding Path=IntNo}" Grid.Column="1" Grid.Row="5" VerticalAlignment="Center" HorizontalAlignment="Left" Width="100"/>
+                <ComboBox ItemsSource="{x:Static l:Zones.Items}"
+                          SelectedItem="{Binding Path=Zone}"
+                          Grid.Column="1" Grid.Row="6" VerticalAlignment="Center" HorizontalAlignment="Left" Width="50"/>
+            </Grid>
+            <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                <GroupBox Header="ルータの登録">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="5">
+                        <RadioButton Content="なし" IsChecked="{Binding Path=routerIsNotResistered}"/>
+                        <TextBlock Width="30"/>
+                        <RadioButton Content="あり" />
+                    </StackPanel>
+                </GroupBox>
+                <GroupBox Header="ユーザの登録">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="5">
+                        <RadioButton Content="なし" IsChecked="{Binding Path=userIsNotResistered}"/>
+                        <TextBlock Width="30"/>
+                        <RadioButton Content="あり" />
+                    </StackPanel>
+                </GroupBox>
+                <GroupBox Header="仮想ポートの登録">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="5">
+                        <RadioButton Content="なし" IsChecked="{Binding Path=vportIsNotResistered}"/>
+                        <TextBlock Width="30"/>
+                        <RadioButton Content="あり" />
+                    </StackPanel>
+                </GroupBox>
+                <GroupBox Header="課金ポートの登録">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="5">
+                        <RadioButton Content="なし" IsChecked="{Binding Path=chargeIsNotResistered}"/>
+                        <TextBlock Width="30"/>
+                        <RadioButton Content="あり" />
+                    </StackPanel>
+                </GroupBox>
+            </StackPanel>
+            <StackPanel Grid.Column="2" VerticalAlignment="Center">
+                <Button Height="40" Content="SQL生成" Margin="10" 
+                        Command="{Binding Path=GeneSQLCommand}"/>
+                <Button Height="40" Content="リセット" Margin="10"
+                        Command="{Binding Path=ResetCommand}"/>
+                <TextBlock Height="40" Margin="10"/>
+            </StackPanel>
+        </Grid>
+        <StackPanel Grid.Row="1" Margin="10">
+            <TextBlock Text="実行するSQL文"/>
+            <TextBox Text="{Binding Path=SQL}" IsReadOnly="True" Height="200" VerticalAlignment="Stretch" AcceptsReturn="True" />
+        </StackPanel>
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="5">
+            <Button Content="閉じる" Width="100" Height="30" Click="BT_Close"/>
+        </StackPanel>
     </Grid>
 </Window>

@@ -8,11 +8,11 @@ using System.Windows;
 // アセンブリに関連付けられている情報を変更するには、
 // これらの属性値を変更してください。
 [assembly: AssemblyTitle("SQLMaker2")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("SQL文を生成します。")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("株式会社NTTPCコミュニケーションズ")]
 [assembly: AssemblyProduct("SQLMaker2")]
-[assembly: AssemblyCopyright("Copyright ©  2015")]
+[assembly: AssemblyCopyright("Copyright ©  2015 Tomoyuki YamaZaki")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
