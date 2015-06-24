@@ -195,8 +195,8 @@ namespace SQLMaker2
                                       User, Ap.ApCode, Zone, nl);
             if (chargeIsNotResistered)
             {
-                sql += string.Format("INSERT INTO m_inf VALUES('{0}', {1});{2}",
-                                      Router, IntNo, nl);
+            //    sql += string.Format("INSERT INTO m_inf VALUES('{0}', {1});{2}",
+            //                          Router, IntNo, nl);
                 sql += string.Format("INSERT INTO m_charge VALUES('{0}', {1}, '{2}', '{3}', {4}, '{5}');{6}",
                                       Router, IntNo, User, Ap.ApCode, Zone, NWID, nl);
             }
